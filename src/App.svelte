@@ -3,10 +3,10 @@
   import Exercise from "./lib/Exercise.svelte";
 
   export let exercises = [
-    { name: "squat", trainingMax: 130, isVisible: true },
+    { name: "front squat", trainingMax: 130, isVisible: true },
     { name: "bench", trainingMax: 140, isVisible: true },
     { name: "deadlift", trainingMax: 235, isVisible: true },
-    { name: "press", trainingMax: 100, isVisible: true },
+    { name: "press", trainingMax: 100, isVisible: false },
   ];
 
   export const weeks = ["I", "II", "III", "IV"];
