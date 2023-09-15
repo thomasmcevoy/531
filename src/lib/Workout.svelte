@@ -9,8 +9,8 @@
     [0.85, 0.9, 0.95, 0.6],
   ];
 
-  export function roundDown(weight) {
-    if (!isNaN(weight)) return Math.floor(weight / increment) * increment;
+  export function roundDown(n) {
+    if (!isNaN(n)) return Math.floor(n / increment) * increment;
     return 0;
   }
 </script>
