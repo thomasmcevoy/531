@@ -1,6 +1,7 @@
 {
 	"name": "531-svelte",
-	"version": "0.0.1",
+	"version": "1.0.1",
+	"homepage": "https://thomasmcevoy.github.io/531-svelte",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
