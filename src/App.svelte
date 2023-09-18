@@ -1,6 +1,7 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   import Exercise from "./lib/Exercise.svelte";
+  import Settings from "./lib/Settings.svelte";
 
   export let exercises = [
     { name: "front squat", trainingMax: 130, isVisible: true },
@@ -10,6 +11,20 @@
   ];
 
   export const weeks = ["I", "II", "III", "IV"];
+
+  export let foreverDeload = true;
+
+  export let originalDeloadSets = [
+    [0.65, 0.7, 0.75, 0.4],
+    [0.75, 0.8, 0.85, 0.5],
+    [0.85, 0.9, 0.95, 0.6],
+  ];
+
+  export let foreverDeloadSets = [
+    [0.65, 0.7, 0.75, 0.7],
+    [0.75, 0.8, 0.85, 0.8],
+    [0.85, 0.9, 0.95, 0.9],
+  ];
 
   onMount(async () => {
     // squat = await localStorage.getItem('squat') || squat;
@@ -25,12 +40,18 @@
 </script>
 
 <div id="page">
+  <Settings {foreverDeload} />
   {#each weeks as week, i}
     <div class="week">
       <h2>Week {week}</h2>
       {#each exercises as exercise}
         {#if exercise.isVisible === true}
-          <Exercise bind:exercise weekNumber={i} />
+          <Exercise
+            bind:exercise
+            weekNumber={i}
+            {foreverDeload}
+            sets={foreverDeload ? foreverDeloadSets : originalDeloadSets}
+          />
         {/if}
       {/each}
     </div>

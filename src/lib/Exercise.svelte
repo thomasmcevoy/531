@@ -1,7 +1,7 @@
 <script>
   import Workout from "./Workout.svelte";
 
-  export let weekNumber, exercise;
+  export let weekNumber, exercise, sets, foreverDeload;
 </script>
 
 <div class="exercise">
@@ -20,7 +20,12 @@
     {/if}
   </div>
 
-  <Workout {weekNumber} trainingMax={exercise.trainingMax} />
+  <Workout
+    {weekNumber}
+    {sets}
+    {foreverDeload}
+    trainingMax={exercise.trainingMax}
+  />
 </div>
 
 <style>
