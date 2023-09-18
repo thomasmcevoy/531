@@ -5,8 +5,8 @@
     sets,
     foreverDeload;
 
-  export function roundDown(n) {
-    if (!isNaN(n)) return Math.floor(n / increment) * increment;
+  export function round(n) {
+    if (!isNaN(n)) return Math.round(n / increment) * increment;
     return 0;
   }
 </script>
@@ -14,22 +14,24 @@
 <div class="workout">
   <div class="reps column">
     <div class="column-title">Reps</div>
-    <div class="reps">{weekNumber === 1 ? 3 : 5}</div>
-    <div class="reps">{weekNumber === 0 ? 5 : 3}</div>
-    <div class="reps">
-      {weekNumber === 0 ? 5 : weekNumber === 1 ? 3 : 1}{weekNumber !== 3
-        ? "+"
-        : ""}
+    <div class="reps-container">
+      <div class="reps">{weekNumber === 1 ? 3 : 5}</div>
+      <div class="reps">{weekNumber === 0 ? 5 : 3}</div>
+      <div class="reps">
+        {weekNumber === 0 ? 5 : weekNumber === 1 ? 3 : 1}{weekNumber !== 3
+          ? "+"
+          : ""}
+      </div>
+      {#if foreverDeload && weekNumber === 3}
+        <div class="reps">1</div>
+      {/if}
     </div>
-    {#if foreverDeload && weekNumber === 3}
-      <div class="reps">1</div>
-    {/if}
   </div>
 
   <div class="weight column">
     <div class="column-title">Weight</div>
     {#each sets as set, i}
-      <div class="weight">{roundDown(trainingMax * set[weekNumber])}</div>
+      <div class="weight">{round(trainingMax * set[weekNumber])}</div>
     {/each}
     {#if foreverDeload && weekNumber === 3}
       <div class="weight">{trainingMax}</div>
@@ -59,5 +61,13 @@
   .weight,
   .column {
     padding: var(--small-padding) 0;
+  }
+
+  .reps-container {
+    float: right;
+  }
+
+  .reps {
+    text-align: left;
   }
 </style>
