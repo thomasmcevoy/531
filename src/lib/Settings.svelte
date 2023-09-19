@@ -1,4 +1,6 @@
-<script></script>
+<script>
+  export let exercises, settings;
+</script>
 
 <div id="settings-button">⚙</div>
 

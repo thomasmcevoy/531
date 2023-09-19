@@ -3,27 +3,18 @@
   import Exercise from "./lib/Exercise.svelte";
   import Settings from "./lib/Settings.svelte";
 
+  export const weeks = ["I", "II", "III", "IV"];
+
+  export let settings = {
+    increment: 5,
+    foreverDeload: true,
+  };
+
   export let exercises = [
     { name: "front squat", trainingMax: 130, isVisible: true },
     { name: "bench", trainingMax: 140, isVisible: true },
     { name: "deadlift", trainingMax: 235, isVisible: true },
     { name: "press", trainingMax: 100, isVisible: false },
-  ];
-
-  export const weeks = ["I", "II", "III", "IV"];
-
-  export let foreverDeload = true;
-
-  export let originalDeloadSets = [
-    [0.65, 0.7, 0.75, 0.4],
-    [0.75, 0.8, 0.85, 0.5],
-    [0.85, 0.9, 0.95, 0.6],
-  ];
-
-  export let foreverDeloadSets = [
-    [0.65, 0.7, 0.75, 0.7],
-    [0.75, 0.8, 0.85, 0.8],
-    [0.85, 0.9, 0.95, 0.9],
   ];
 
   onMount(async () => {
@@ -40,18 +31,13 @@
 </script>
 
 <div id="page">
-  <Settings {foreverDeload} />
+  <Settings {settings} bind:exercises />
   {#each weeks as week, i}
     <div class="week">
       <h2>Week {week}</h2>
       {#each exercises as exercise}
         {#if exercise.isVisible === true}
-          <Exercise
-            bind:exercise
-            weekNumber={i}
-            {foreverDeload}
-            sets={foreverDeload ? foreverDeloadSets : originalDeloadSets}
-          />
+          <Exercise bind:exercise weekNumber={i} {settings} />
         {/if}
       {/each}
     </div>
