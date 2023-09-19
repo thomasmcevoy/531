@@ -24,6 +24,12 @@
 </div>
 
 <style>
+  @media (min-width: 850px) {
+    .exercise {
+      height: 11.5em;
+    }
+  }
+
   .header {
     width: 33.33%;
     text-transform: capitalize;

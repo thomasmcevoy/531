@@ -57,7 +57,7 @@
     font: var(--font-size) / 1 helvetica;
     overflow: hidden;
   }
-  @media (min-width: 414px) {
+  @media (min-width: 450px) {
     #page {
       padding-left: 0.75em;
       font-size: var(--font-size-wide);
@@ -77,9 +77,8 @@
     flex-direction: column;
     justify-content: space-between;
   }
-  @media (min-width: 414px) {
+  @media (min-width: 450px) {
     .week {
-      margin-top: 0;
       width: 50%;
     }
   }

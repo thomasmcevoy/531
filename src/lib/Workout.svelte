@@ -32,8 +32,12 @@
           ? "+"
           : ""}
       </div>
-      {#if settings.foreverDeload && weekNumber === 3}
-        <div class="reps">1</div>
+      {#if settings.foreverDeload}
+        {#if weekNumber === 3}
+          <div class="reps">1</div>
+        {:else}
+          <div class="reps-placeholder" />
+        {/if}
       {/if}
     </div>
   </div>
@@ -77,7 +81,9 @@
     float: right;
   }
 
-  .reps {
+  .reps,
+  .reps-placeholder {
     text-align: left;
+    height: 1.5em;
   }
 </style>
