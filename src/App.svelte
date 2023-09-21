@@ -1,7 +1,7 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   import Exercise from "./lib/Exercise.svelte";
-  import Settings from "./lib/Settings.svelte";
+  // import Menu from "./lib/Menu.svelte";
 
   export const weeks = ["I", "II", "III", "IV"];
 
@@ -31,7 +31,7 @@
 </script>
 
 <div id="page">
-  <Settings {settings} bind:exercises />
+  <!-- <Menu {settings} bind:exercises /> -->
   {#each weeks as week, i}
     <div class="week">
       <h2>Week {week}</h2>

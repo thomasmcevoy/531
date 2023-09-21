@@ -13,6 +13,12 @@
         [0.85, 0.9, 0.95, 0.6],
       ];
 
+  export const reps = [
+    [5, 3, 5, 5],
+    [5, 3, 3, 3],
+    ["5+", "3+", "1+", 1],
+  ];
+
   export function round(n) {
     if (!isNaN(n))
       return Math.round(n / settings.increment) * settings.increment;
@@ -25,13 +31,9 @@
     <div class="column-title">Reps</div>
 
     <div class="reps-container">
-      <div class="reps">{weekNumber === 1 ? 3 : 5}</div>
-      <div class="reps">{weekNumber === 0 ? 5 : 3}</div>
-      <div class="reps">
-        {weekNumber === 0 ? 5 : weekNumber === 1 ? 3 : 1}{weekNumber !== 3
-          ? "+"
-          : ""}
-      </div>
+      {#each reps as rep, i}
+        <div class="reps">{reps[i][weekNumber]}</div>
+      {/each}
       {#if settings.foreverDeload}
         {#if weekNumber === 3}
           <div class="reps">1</div>
