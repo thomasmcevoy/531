@@ -3,17 +3,17 @@
   import Exercise from "./lib/Exercise.svelte";
   // import Menu from "./lib/Menu.svelte";
 
-  export const weeks = ["I", "II", "III", "IV"];
-
   export let settings = {
     increment: 5,
     foreverDeload: true,
   };
 
+  export const weeks = ["I", "II", "III", "IV"];
+
   export let exercises = [
-    { name: "front squat", trainingMax: 130, isVisible: true },
-    { name: "bench", trainingMax: 140, isVisible: true },
-    { name: "deadlift", trainingMax: 235, isVisible: true },
+    { name: "front squat", trainingMax: 135, isVisible: true },
+    { name: "bench", trainingMax: 145, isVisible: true },
+    { name: "deadlift", trainingMax: 245, isVisible: true },
     { name: "press", trainingMax: 100, isVisible: false },
   ];
 
